@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js run dev
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js run build
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\Tom\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\Tom\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Tom\AppData\Local\Programs\Python\Python36-32\;C:\Users\Tom\AppData\Local\Microsoft\WindowsApps;C:\Users\Tom\AppData\Local\atom\bin;C:\Program Files\Heroku\bin;C:\Users\Tom\AppData\Local\Yarn\bin;C:\Program Files (x86)\sox-14-4-2;C:\Users\Tom\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Microsoft VS Code\bin;C:\Users\Tom\AppData\Local\Microsoft\WindowsApps;C:\Users\Tom\AppData\Roaming\npm;C:\Users\Tom\AppData\Roaming\nvm;C:\Program Files\nodejs
@@ -22,8 +22,10 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "serve": "live-server public/",
-      "build": "webpack",
-      "dev-server": "webpack-dev-server"
+      "build:dev": "webpack",
+      "build:prod": "webpack -p",
+      "dev-server": "webpack-dev-server",
+      "test": "jest --config=jest.config.json"
     },
     "dependencies": {
       "babel-cli": "6.24.1",
@@ -33,6 +35,9 @@ npm manifest:
       "babel-preset-env": "1.5.2",
       "babel-preset-react": "6.24.1",
       "css-loader": "0.28.4",
+      "enzyme": "^2.9.1",
+      "enzyme-to-json": "^1.5.1",
+      "jest": "^20.0.4",
       "live-server": "^1.2.0",
       "moment": "^2.18.1",
       "node-sass": "4.5.3",
@@ -44,6 +49,7 @@ npm manifest:
       "react-modal": "2.2.2",
       "react-redux": "^5.0.5",
       "react-router-dom": "4.1.2",
+      "react-test-renderer": "^15.6.1",
       "redux": "^3.7.2",
       "sass-loader": "6.0.6",
       "style-loader": "0.18.2",
@@ -4699,7 +4705,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command "dev" not found.
+  Error: Command "build" not found.
       at new MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
       at C:\Program Files (x86)\Yarn\lib\cli.js:87307:17
       at Generator.next (<anonymous>)
